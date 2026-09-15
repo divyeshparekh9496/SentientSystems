@@ -40,3 +40,23 @@ const sectionObserver = new IntersectionObserver(entries => {
   });
 }, {rootMargin: '-10% 0px -55% 0px', threshold: 0});
 document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
+
+const missionSteps = [
+ ['Scout agent mapped the hydro resource and its seasonal generation questions.','Matching agent linked the resource to a substation, industrial parcel, and possible fiber connection.','Planning agent assembled a hydro + substation + fiber campus proposal.','Evaluation agent flagged water rights, connection headroom, and service availability for review.'],
+ ['Scout agent identified landfill gas as the candidate resource.','Matching agent connected gas recovery with modular generators and a flexible compute load.','Planning agent prepared a gas-to-power configuration with gas treatment and redundancy questions.','Evaluation agent flagged gas yield, air permits, maintenance, and uptime assumptions for review.'],
+ ['Scout agent identified curtailed renewable generation as the candidate resource.','Matching agent connected the resource with storage and flexible data-center demand.','Planning agent prepared a renewable-plus-storage configuration for comparison.','Evaluation agent flagged hourly records, battery sizing, grid backup, and dispatch assumptions for review.']
+];
+let missionStep = -1;
+const missionButton = document.getElementById('mission-next');
+const missionOutput = document.getElementById('mission-output');
+function resetMission(){missionStep=-1;missionButton.textContent='Start mission preview →';missionOutput.innerHTML='<p class="micro">READY / 4 SPECIALIST AGENTS</p><p>See how a mission moves through the proposed agent network.</p>';document.querySelectorAll('.orbit-node').forEach(n=>n.classList.remove('active'));}
+document.getElementById('mission-choice').addEventListener('change',resetMission);
+missionButton.addEventListener('click',()=>{
+ if(missionStep===4){resetMission();return;}
+ missionStep++;
+ document.querySelectorAll('.orbit-node').forEach((n,i)=>n.classList.toggle('active',i===missionStep));
+ const label=['SCOUT','MATCH','PLAN','EVALUATE','RETURN TO CORE'][missionStep];
+ const message=missionStep<4?missionSteps[Number(document.getElementById('mission-choice').value)][missionStep]:'The core receives the reviewed proposal. In the planned system, validated outcomes feed reward signals and evaluated policy updates for future missions.';
+ missionOutput.innerHTML='<p class="micro">PREVIEW / '+label+'</p><p>'+message+'</p>';
+ missionButton.textContent=missionStep===4?'Reset mission preview ↻':'Next agent step →';
+});
