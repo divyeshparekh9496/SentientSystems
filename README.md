@@ -1,23 +1,20 @@
 # Sentient Systems
 
-Industrial landing page for infrastructure intelligence, Energy + Compute Radar, and RL resource-planning research.
+Company partnership website for research-led multi-agent AI integration. The site explains the collaboration offer, the coordinating AI brain, research and algorithmic design, mathematical objectives, and a measured pilot process.
 
 ## Run locally
 
-Open `index.html`, or run `python3 -m http.server 8000` in this folder and visit http://localhost:8000. No dependencies or build step.
+Run `python3 -m http.server 8000` from this directory and open http://localhost:8000. No dependencies or build step.
 
-## GitHub Pages
+## Publishing
 
-Publish the repository root from `main` in Settings → Pages. Keep `index.html`, `styles.css`, `app.js`, `favicon.svg`, and the existing `CNAME` together. All asset paths are relative, so the site also works under a GitHub Pages repository path. The existing custom domain is `sentientsystems.space`; DNS settings are unchanged.
+GitHub Pages serves the repository root from `main` with the existing custom domain `sentientsystems.space`. Keep the existing CNAME and relative asset paths.
 
-## Interactions and content
+## Interactions
 
-- Radar category buttons filter opportunity cards and map markers. Selecting either updates the detail panel.
-- The resource selector switches among hydro, landfill gas, and curtailed-renewable combinations.
-- Pilot, partnership, and site-search links open email drafts using Divyesh Parekh’s contact address, `dparekh3291@gmail.com`. No submissions are stored or sent by the page.
-- Scenarios are fictional and labeled illustrative. The map is a schematic, not a geographic survey. The explorer is not a trained RL model or live scouting service.
-- Edit the curated arrays in `app.js` to change scenarios. The RL section describes research intent; production scouting, simulation, training, and verification require a separate system.
+- Three workflow tabs show illustrative agent roles and human handoffs.
+- Objective sliders normalize relative error, cost, and time penalties. All-zero and tied priorities have explicit states. This is an explanatory model, not a running AI system or a claim of measured results.
+- The collaboration link opens a prefilled email draft to Divyesh Parekh. The site does not submit or store visitor information.
+- The proposed architecture and examples describe potential engagements, not existing deployed integrations.
 
-## Accessibility
-
-Semantic landmarks, labeled navigation and controls, keyboard focus styles, pressed states, live detail updates, reduced-motion support, responsive layouts, and a skip link. Core marketing content and contact links remain available without JavaScript.
+Semantic landmarks, keyboard focus styles, labeled sliders, pressed-state buttons, live updates, reduced-motion support, and responsive layouts are included. Core content and email links work without JavaScript.
